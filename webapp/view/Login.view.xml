@@ -3,7 +3,34 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content>
-            <Button text="asd" />
+            <VBox
+            height="100%"
+            >
+                <FlexBox
+                height="100%"
+                alignItems="Center"
+				justifyContent="Center"
+                direction="Column"
+                alignContent="Center" >
+                    <Text text="E-mail vagy Felhasználó"></Text>
+                    <Input 	id="nameInput"
+			           class="sapUiSmallMarginEnd"
+			            placeholder="E-mail vagy Felhasználó"
+                       ></Input>
+                    <Text text="Jelszó"></Text>
+                    <Input 	id="PasswordInput"
+                        class="sapUiSmallMarginEnd"
+                        type="Password"
+			            placeholder="Jelszó"></Input>
+                    <Button 
+                        text = "Regisztráció"
+                        press=".onDialogPress"
+                    ></Button>
+                <Button text="Belépés"
+                        press="onPress"
+                        ></Button>
+                </FlexBox>
+            </VBox>
         </content>
     </Page>
 </mvc:View>
