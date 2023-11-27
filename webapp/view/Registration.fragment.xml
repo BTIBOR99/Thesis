@@ -2,19 +2,51 @@
 xmlns="sap.m"
 xmlns:core="sap.ui.core"
 >
-<!-- <Dialog 
-id="SimpleDialog"
-title="Dialog in Fragment"
+<Dialog 
+id="Dialog"
+title="Regisztráció"
 >
-
-<endButton>
-
-<Button 
-press=".onCloseDialog" text="{i18n>closeButtonText}"
-
-></Button>
-
-</endButton>
-
-</Dialog> -->
+        <VBox
+            height="100%"
+            >
+                <FlexBox
+                height="100%"
+                alignItems="Center"
+				justifyContent="Center"
+                direction="Column"
+                alignContent="Center" >
+                    <Text text="Felhasználó"/>
+                    <Input 
+			           class="sapUiSmallMarginEnd"
+                       liveChange="RegistrationInputValidition"
+                       id="idRegistrationNickNameInput"
+                       maxLength="10"
+                       />
+                    <Text text="E-mail"/>
+                    <Input 
+			           class="sapUiSmallMarginEnd"
+                       liveChange="RegistrationInputValidition"
+                       id="idRegistrationEmailInput"
+                       />
+                    <Text text="Jelszó"/>
+                    <Input
+                        class="sapUiSmallMarginEnd"
+                        type="Password"
+                        liveChange="RegistrationInputValidition"
+                        id="idRegistrationPasswordInput"/>
+                    <Text text="Jelszó újra"/>
+                    <Input
+                        class="sapUiSmallMarginEnd"
+                        type="Password"
+                        liveChange="RegistrationInputValidition"
+                        id="idRegistrationPasswordInput2"
+                        />
+                    <Button 
+                        text = "Regisztráció"
+                        press="onSaveData"/>
+                <Button text="Mégse"
+                        press="onCloseDialog"/>
+                </FlexBox>
+            </VBox>
+</Dialog>
 </core:FragmentDefinition>

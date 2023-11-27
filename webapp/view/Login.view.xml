@@ -24,11 +24,9 @@
 			            placeholder="Jelszó"></Input>
                     <Button 
                         text = "Regisztráció"
-                        press=".onDialogPress"
-                    ></Button>
+                        press="onDialogPress"/>
                 <Button text="Belépés"
-                        press="onPress"
-                        ></Button>
+                        press="onPress"/>
                 </FlexBox>
             </VBox>
         </content>
