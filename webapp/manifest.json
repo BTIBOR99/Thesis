@@ -99,6 +99,21 @@
           "target": [
             "TargetLogin"
           ]
+        },
+        {
+          "pattern": "",
+          "name": "Main",
+          "target" : "Main"
+        },
+        {
+          "pattern": "",
+          "name": "AccomodationCreate",
+          "target" : "AccomodationCreate"
+        },
+        {
+          "pattern": "",
+          "name": "AccomodationReservation",
+          "target" : "AccomodationReservation"
         }
       ],
       "targets": {
@@ -108,6 +123,18 @@
           "clearControlAggregation": false,
           "viewId": "Login",
           "viewName": "Login"
+        },
+        "Main" : {
+          "id": "Main",
+          "name": "Main"
+        },
+        "AccomodationCreate" : {
+          "id": "AccomodationCreate",
+          "name": "AccomodationCreate"
+        },
+        "AccomodationReservation" : {
+          "id": "AccomodationReservation",
+          "name": "AccomodationReservation"
         }
       }
     },

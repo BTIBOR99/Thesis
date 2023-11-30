@@ -25,7 +25,8 @@ title="Regisztráció"
                     <Text text="E-mail"/>
                     <Input 
 			           class="sapUiSmallMarginEnd"
-                       liveChange="RegistrationInputValidition"
+                       type="Email"
+                       Change="RegistrationInputValidition"
                        id="idRegistrationEmailInput"
                        />
                     <Text text="Jelszó"/>

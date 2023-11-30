@@ -1,0 +1,20 @@
+<mvc:View
+	controllerName=""
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+
+<Page id="AccomodationCreatePage"
+>
+    <content>
+        <Button 
+		text="Create">
+        </Button>
+    </content>
+
+</Page>
+</mvc:View>

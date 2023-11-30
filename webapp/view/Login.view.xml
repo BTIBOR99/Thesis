@@ -1,7 +1,7 @@
 <mvc:View controllerName="Thesis.thesis.controller.Login"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="{i18n>title}" class="page2BgImg">
         <content>
             <VBox
             height="100%"
@@ -26,7 +26,7 @@
                         text = "Regisztráció"
                         press="onDialogPress"/>
                 <Button text="Belépés"
-                        press="onPress"/>
+                        press="onPressLogin"/>
                 </FlexBox>
             </VBox>
         </content>

@@ -1,1 +1,6 @@
 /* Enter your custom styles here */
+
+ .page2BgImg {
+    background-image: url('https://hellozemplen.hu/wp-content/uploads/aranygombos-fogado.jpg');
+    background-size: 100% 100%;
+  }
