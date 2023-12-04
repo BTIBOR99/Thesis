@@ -1,4 +1,4 @@
-<mvc:View
+<mvc:View xmlns:widgets="sap.ui.integration.widgets" xmlns:filterbar="sap.ui.comp.filterbar"
 	controllerName="Thesis.thesis.controller.Main"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
@@ -8,13 +8,21 @@
 	busyIndicatorDelay="0"
 >
 
-<Page id="MainPage"
->	<subHeader>
-			<Toolbar>
-				<SearchField width="100%" search="onSearch" />
-			</Toolbar>
-		</subHeader>
-		<SearchField width="90%" class="sapUiSmallMargin" />
+<Page id="MainPage">
 
+				<FlexBox
+				height="100px"
+				alignItems="Start"
+				justifyContent="End">
+					<Button 
+					width="100%"
+					text="Kilépés"
+					press="onExit"
+			></Button>
+				</FlexBox>
+						<SearchField width="50%" placeholder="Keresés" search="onSearch" />
+			
+				<filterbar:FilterBar >
+				</filterbar:FilterBar>
 </Page>
 </mvc:View>

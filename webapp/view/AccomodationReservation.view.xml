@@ -10,11 +10,47 @@
 
 <Page id="AccomodationReservationPage"
 >
-    <content>
+    <content>		
+		<Text 
+		text="Szállás neve"/>
+		<Text 
+		text="Szállás helye"/>
+		<Text 
+		text="Leírása"/>
+		<Text 
+		text="Ár/Fő/Éj"/>
+		<DateRangeSelection/>
+		<Text 
+		text="Adja meg a személyek számát"/>
+		<Input 
+		id= "idPersonNumberInput"
+		/>
+		<Text 
+		text="Fizetési mód"/>
+		<Text 
+		text="Foglaló Neve"/>
+		<Input 
+		id= "idPersonNameInput"
+		/>
+		<Text 
+		text="Irányítószám"/>
+		<Input 
+		id= "idZIPInput"
+		/>
+		<Text 
+		text="Város"/>
+		<Input 
+		id= "idCityInput"
+		/>
+		<Text 
+		text="Utca,házszám"/>
+		<Input 
+		id= "idStreetInput"
+		/>
         <Button 
-		text="Reservation">
-        </Button>
+		text="Reservation"/>
     </content>
+
 
 </Page>
 </mvc:View>

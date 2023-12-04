@@ -87,42 +87,37 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "Thesis.thesis.view",
-        "controlAggregation": "pages",
+        "type": "View",
+        "path": "Thesis.thesis.view",
         "controlId": "app",
-        "clearControlAggregation": false
+        "controlAggregation": "pages"
       },
       "routes": [
         {
-          "name": "RouteLogin",
-          "pattern": ":?query:",
-          "target": [
-            "TargetLogin"
-          ]
+          "pattern": "",
+          "name": "Login",
+          "target" : "Login"
         },
         {
-          "pattern": "",
+          "pattern": "Main",
           "name": "Main",
           "target" : "Main"
         },
         {
-          "pattern": "",
+          "pattern": "AccomodationCreate",
           "name": "AccomodationCreate",
           "target" : "AccomodationCreate"
         },
         {
-          "pattern": "",
+          "pattern": "AccomodationReservation",
           "name": "AccomodationReservation",
           "target" : "AccomodationReservation"
         }
       ],
       "targets": {
-        "TargetLogin": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "Login",
-          "viewName": "Login"
+        "Login" : {
+          "id": "Login",
+          "name": "Login"
         },
         "Main" : {
           "id": "Main",

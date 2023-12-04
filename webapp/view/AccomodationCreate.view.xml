@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName=""
+	controllerName="Thesis.thesis.controller.AccomodationCreate"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
 	xmlns:c="sap.ui.core"
@@ -11,9 +11,50 @@
 <Page id="AccomodationCreatePage"
 >
     <content>
+		<VBox
+		>
+		<HBox
+		>
+		<Text
+		text="Szállás Neve:"/>	
+		
+		<Text
+			text="Képek hozzáadása:" />
+		</HBox>
+		<HBox
+		>
+		<Input 
+		id="idAccomodationNameInput"
+		width="50%"/>
+		<Button 
+		text="+"
+		press="onAddPictures"/>		
+		</HBox>
+
+		<Text
+		text="Szállás Helye:"/> 
+		<Input
+		id = "idAccomodationPlaceInput"
+		width="50%"/>
+		<Text
+			text="Ár/Fő/Éj:"/> 
+		<Input
+		id = "idAccomodationCostInput"
+		width="50%"/>
+		<Text
+			text="Leírás:"/> 
+		<Input
+		id = "idAccomodationDescriptionInput"
+		 width="100%"/>
+		</VBox>	
         <Button 
-		text="Create">
-        </Button>
+		text="Létrehozás"
+		press="onCreate"/>
+		<Button
+			text="Mégse"
+			press="onExitCreate"
+		/>
+
     </content>
 
 </Page>
