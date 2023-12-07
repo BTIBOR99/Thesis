@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName=""
+	controllerName="Thesis.thesis.controller.AccomodationReservation"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
 	xmlns:c="sap.ui.core"

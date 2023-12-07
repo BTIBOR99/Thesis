@@ -20,7 +20,6 @@ sap.ui.define([
 		  var oModel = new sap.ui.model.odata.ODataModel(
 			"/sap/opu/odata/sap/Z_THESIS_BM_SRV/"
 		  );
-		  debugger;
 		  var oEntry = {};
 		  oEntry.Name = this.AccomodationName;
 		  oEntry.City = this.AccomodationPlace;

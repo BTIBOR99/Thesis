@@ -31,9 +31,15 @@ sap.ui.define([
 
         onExit: function(){
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
             localStorage.removeItem("Username");
             localStorage.clear();
+
             oRouter.navTo("Login");
+        },
+        onReservation: function (event) {
+            var sourceControl = sap.ui.getCore().byId(event.getParameter("id"));
+            debugger;
         }
 	});
 });
