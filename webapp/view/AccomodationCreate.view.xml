@@ -21,8 +21,7 @@
 		<Text
 			text="Képek hozzáadása:" />
 		</HBox>
-		<HBox
-		>
+		<HBox>
 		<Input 
 		id="idAccomodationNameInput"
 		width="50%"/>
@@ -30,9 +29,14 @@
 		text="+"
 		press="onAddPictures"/>		
 		</HBox>
-
+		<DatePicker
+		id="idDp1"
+		valueFormat="ddMMyyyy"	/>
+		<DatePicker
+		id="idDp2"
+		valueFormat="ddMMyyyy"	/>
 		<Text
-		text="Szállás Helye:"/> 
+		text= "Szállás Helye:"/> 
 		<Input
 		id = "idAccomodationPlaceInput"
 		width="50%"/>

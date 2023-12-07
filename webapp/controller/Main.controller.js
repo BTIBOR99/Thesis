@@ -9,6 +9,7 @@ sap.ui.define([
         onInit: function () {
 
             this.getAccomodationList();
+            var username = localStorage.getItem("Username");
         },
         getAccomodationList: function (){
 
@@ -16,7 +17,7 @@ sap.ui.define([
             oModel.read("AccomodationSet", {
                 success: function(oData) {
                     this.AccomodationModel = new sap.ui.model.json.JSONModel(oData.results);
-                    this.getView().setModel(AccomodationModel, "AccomodationModel");
+                    this.getView().setModel(this.AccomodationModel, "AccomodationModel");
                 }.bind(this),
                 error : function (oError){}
             })
@@ -26,6 +27,13 @@ sap.ui.define([
 			if (event.getParameter("searchButtonPressed")) {
 				MessageToast.show("'search' event fired with 'searchButtonPressed' parameter");
 			}
-		}
+		},
+
+        onExit: function(){
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            localStorage.removeItem("Username");
+            localStorage.clear();
+            oRouter.navTo("Login");
+        }
 	});
 });

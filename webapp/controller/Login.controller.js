@@ -157,7 +157,8 @@ sap.ui.define(
           //  MessageBox.alert("Log suc.");
           //  this.getView().byId("nameInput").setValue("");
            // this.getView().byId("PasswordInput").setValue("");
-            oRouter.navTo("AccomodationCreate");
+            oRouter.navTo("Main");
+            localStorage.setItem("Username", username);
           },
           error: function (oError) {
             MessageBox.alert("Log error");
