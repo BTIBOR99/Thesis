@@ -27,6 +27,8 @@
 		/>
 		<Text 
 		text="Fizetési mód"/>
+		<ComboBox 
+		items= ></ComboBox>
 		<Text 
 		text="Foglaló Neve"/>
 		<Input 

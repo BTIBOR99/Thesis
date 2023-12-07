@@ -24,5 +24,29 @@
 			
 				<filterbar:FilterBar >
 				</filterbar:FilterBar>
+		<List
+			class="sapUiSmallMarginBottom"
+			showSeparators="None"
+			items="{ path: 'AccomodationModel>/' }">
+			<CustomListItem>
+				<f:Card class="sapUiMediumMargin" width="300px">
+					<f:header>
+						<card:Header title="{AccomodationModel>Name}" />
+					</f:header>
+					<f:content>
+						<FlexBox direction="Column" height="auto" alignItems="Center" justifyContent="Center"
+							alignContent="Center">
+
+							<Text text="{AccomodationModel>City}" />
+							<Text text="{AccomodationModel>DateFrom}" />
+							<Text text="{AccomodationModel>DateTo}" />
+							<Text text="{AccomodationModel>Description}" />
+							<Text text="{AccomodationModel>Price}" />
+						    <Button text="Foglalás" press="onReservation"  />
+						</FlexBox>
+					</f:content>
+				</f:Card>
+			</CustomListItem>
+		</List>		
 </Page>
 </mvc:View>
