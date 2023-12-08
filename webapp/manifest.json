@@ -109,7 +109,7 @@
           "target" : "AccomodationCreate"
         },
         {
-          "pattern": "AccomodationReservation",
+          "pattern": "AccomodationReservation/{id}",
           "name": "AccomodationReservation",
           "target" : "AccomodationReservation"
         }

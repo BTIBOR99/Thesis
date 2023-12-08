@@ -10,15 +10,34 @@
 
 <Page id="AccomodationReservationPage"
 >
-    <content>		
+    <content>	
+	<List
+			class="sapUiSmallMarginBottom"
+			showSeparators="None"
+				items="{ path: 'Accomodation>/' }"
+	>
+	<ColumnListItem>
+	<FlexBox
+	>
 		<Text 
 		text="Szállás neve"/>
+		<Text text="{Accomodation>Name}" />
 		<Text 
 		text="Szállás helye"/>
+		<Text text="{Accomodation>City}" />
 		<Text 
 		text="Leírása"/>
+		<Text text="{Accomodation>Description}" />
 		<Text 
 		text="Ár/Fő/Éj"/>
+		<Text text="{Accomodation>Price}" />	
+	</FlexBox>		
+		</ColumnListItem>
+	</List>
+	<VBox 
+	
+	>
+
 		<DateRangeSelection/>
 		<Text 
 		text="Adja meg a személyek számát"/>
@@ -27,8 +46,7 @@
 		/>
 		<Text 
 		text="Fizetési mód"/>
-		<ComboBox 
-		items= ></ComboBox>
+		<ComboBox ></ComboBox>
 		<Text 
 		text="Foglaló Neve"/>
 		<Input 
@@ -51,6 +69,7 @@
 		/>
         <Button 
 		text="Reservation"/>
+			</VBox>	
     </content>
 
 

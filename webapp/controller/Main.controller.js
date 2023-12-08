@@ -34,12 +34,14 @@ sap.ui.define([
 
             localStorage.removeItem("Username");
             localStorage.clear();
-
             oRouter.navTo("Login");
         },
-        onReservation: function (event) {
-            var sourceControl = sap.ui.getCore().byId(event.getParameter("id"));
-            debugger;
-        }
+
+		onReservation: function(oEvent) {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var fields = oEvent.mParameters.id.split('-');
+            var realid = fields[2];
+            oRouter.navTo("AccomodationReservation",{id: realid});
+		}
 	});
 });
