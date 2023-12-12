@@ -26,11 +26,21 @@
 			
 				<filterbar:FilterBar >
 				</filterbar:FilterBar>
-		<List
-			class="sapUiSmallMarginBottom"
-			showSeparators="None"
-			items="{ path: 'AccomodationModel>/' }">
-			<CustomListItem>
+		<FlexBox 
+			items="{ path: 'AccomodationModel>/' }"
+			alignContent="Stretch"	
+			alignItems="Stretch"
+			backgroundDesign="Transparent"
+			direction="Row"
+			displayInline="false"
+			fitContainer="false"
+			height="auto"
+			justifyContent="Start"
+			renderType="Div"
+			width="auto"
+			wrap="Wrap"
+		>
+			<items>
 				<f:Card class="sapUiMediumMargin" width="300px">
 					<f:header>
 						<card:Header title="{AccomodationModel>Name}" />
@@ -39,15 +49,23 @@
 						<FlexBox direction="Column" height="auto" alignItems="Center" justifyContent="Center"
 							alignContent="Center">
 							<Text text="{AccomodationModel>City}" />
-							<Text text="{AccomodationModel>DateFrom}" />
+							<Text text="{AccomodationModel>DateFrom}"  />
 							<Text text="{AccomodationModel>DateTo}" />
 							<Text text="{AccomodationModel>Description}" />
 							<Text text="{AccomodationModel>Price}" />
 						    <Button text="Foglalás" press="onReservation"  />
+							<Button
+								id="btnDeleteReservation"
+								icon="sap-icon://batch-payments"
+								press="onDeleteReservation"
+								visible="false"
+							>
+								
+							</Button>
 						</FlexBox>
 					</f:content>
 				</f:Card>
-			</CustomListItem>
-		</List>		
+			</items>
+		</FlexBox>
 </Page>
 </mvc:View>

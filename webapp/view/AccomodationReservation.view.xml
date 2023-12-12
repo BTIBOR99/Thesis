@@ -11,65 +11,92 @@
 <Page id="AccomodationReservationPage"
 >
     <content>	
-	<List
-			class="sapUiSmallMarginBottom"
-			showSeparators="None"
-				items="{ path: 'Accomodation>/' }"
-	>
-	<ColumnListItem>
-	<FlexBox
-	>
-		<Text 
-		text="Szállás neve"/>
-		<Text text="{Accomodation>Name}" />
-		<Text 
-		text="Szállás helye"/>
-		<Text text="{Accomodation>City}" />
-		<Text 
-		text="Leírása"/>
-		<Text text="{Accomodation>Description}" />
-		<Text 
-		text="Ár/Fő/Éj"/>
-		<Text text="{Accomodation>Price}" />	
-	</FlexBox>		
-		</ColumnListItem>
-	</List>
-	<VBox 
-	
-	>
+    <VBox
+    >
+		    <Text
+                text="Szállás neve" />
+            <Input 
+            id="idAccomodationName"
+            editable="disabled"
+            width="10%"
+            />
+            <Text 
+            id="idTextOutput"
+            />
+            <Text
+                text="Szállás helye" />
+            <Input 
+            id="idAccomodationPlace"
+            editable="disabled"
+            width="10%"/>
+            <Text
+                text="Leírása" />
+            <Input 
+            id="idAccomodationDescription"
+            editable="disabled"
+            width="30%"
+            />
+            <Text
+                text="Ár/Fő/Éj" />
+            <Input 
+            id="idAccomodationPrice"
+            editable="disabled"
+            width="10%"/>
+            <Text
+                text="Foglalható" />
+        <HBox >
+            <Input 
+            id="idAccomodationDateFrom"
+            editable="disabled"
+            width="100%"/>
+            <Input 
+            id="idAccomodationDateTo"
+            editable="disabled"
+            width="100%"/>
+        </HBox>
+    </VBox>
+            <DateRangeSelection />
+            <Text
+                text="Adja meg a személyek számát" />
+            <Input
+                id="idPersonNumberInput"
+            />
+            <Text
+                text="Fizetési mód" />
+            <ComboBox 
+            items=""
+            />
+            <Text
+                text="Foglaló Neve" />
+            <Input
+                id="idPersonNameInput"
+                liveChange="BillingDataValidition"
+            />
+            <Text
+                text="Irányítószám" />
+            <Input
+                id="idZIPInput"
+                liveChange="BillingDataValidition"
+            />
+            <Text
+                text="Város" />
+            <Input
+                id="idCityInput"
+                liveChange="BillingDataValidition"                
+            />
+            <Text
+                text="Utca,házszám" />
+            <Input
+                id="idStreetInput"
+                liveChange="BillingDataValidition"
+            />
+            <Button
+                text="Foglalás"
+                press="onReservationFinish" />
+            <Button
+                text="Mégse"
+                press="onExitReservation" />
 
-		<DateRangeSelection/>
-		<Text 
-		text="Adja meg a személyek számát"/>
-		<Input 
-		id= "idPersonNumberInput"
-		/>
-		<Text 
-		text="Fizetési mód"/>
-		<ComboBox ></ComboBox>
-		<Text 
-		text="Foglaló Neve"/>
-		<Input 
-		id= "idPersonNameInput"
-		/>
-		<Text 
-		text="Irányítószám"/>
-		<Input 
-		id= "idZIPInput"
-		/>
-		<Text 
-		text="Város"/>
-		<Input 
-		id= "idCityInput"
-		/>
-		<Text 
-		text="Utca,házszám"/>
-		<Input 
-		id= "idStreetInput"
-		/>
-        <Button 
-		text="Reservation"/>
-			</VBox>	
     </content>
 
 

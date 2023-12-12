@@ -7,10 +7,17 @@ sap.ui.define([
 
 	return Controller.extend("Thesis.thesis.controller.Main", {
         onInit: function () {
-
+          
             this.getAccomodationList();
-            var username = localStorage.getItem("Username");
+              debugger; 
+            this.username = localStorage.getItem("Username");
+            if (this.username === 'admin') {
+                this.getView().byId("btnDeleteReservation").setVisible(true);
+            } else {
+                this.getView().byId("btnDeleteReservation").setVisible(false);
+            }
         },
+
         getAccomodationList: function (){
 
             var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/Z_THESIS_BM_SRV/");
@@ -34,14 +41,17 @@ sap.ui.define([
 
             localStorage.removeItem("Username");
             localStorage.clear();
-            oRouter.navTo("Login");
+            oRouter.navTo("Login", {},{},true);
         },
 
 		onReservation: function(oEvent) {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             var fields = oEvent.mParameters.id.split('-');
-            var realid = fields[2];
-            oRouter.navTo("AccomodationReservation",{id: realid});
-		}
+            var realid = parseInt(fields[2]);
+            oRouter.navTo("AccomodationReservation", {id: realid + 1 });
+		},
+        onDeleteReservation : function(){
+    
+        }
 	});
 });

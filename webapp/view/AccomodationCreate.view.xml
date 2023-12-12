@@ -2,7 +2,6 @@
 	controllerName="Thesis.thesis.controller.AccomodationCreate"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
-	xmlns:c="sap.ui.core"
 	displayBlock="true"
 	height="100%"
 	busyIndicatorDelay="0"
