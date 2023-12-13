@@ -28,15 +28,7 @@
 				</filterbar:FilterBar>
 		<FlexBox 
 			items="{ path: 'AccomodationModel>/' }"
-			alignContent="Stretch"	
-			alignItems="Stretch"
-			backgroundDesign="Transparent"
-			direction="Row"
-			displayInline="false"
-			fitContainer="false"
 			height="auto"
-			justifyContent="Start"
-			renderType="Div"
 			width="auto"
 			wrap="Wrap"
 		>
@@ -67,5 +59,11 @@
 				</f:Card>
 			</items>
 		</FlexBox>
+		<Button 
+			id="idCreateReservation"
+			icon="sap-icon://add"
+			press="onNavigationCreate"
+			visible="false"
+		/>
 </Page>
 </mvc:View>

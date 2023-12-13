@@ -39,26 +39,52 @@ sap.ui.define([
 			});
 		},
 
-		BillingDataValidition : function(){
-			this.Person = this.getView().byId("idPersonNumberInput").getValue();
+		BillingDataValidition : function(input){
+			debugger;
+			this.dateFrom = this.getView().byId("idDpReservation1").getValue();
+			this.dateTo = this.getView().byId("idDpReservation2").getValue();
+			this.person = this.getView().byId("idPersonNumberInput").getValue();
 			this.personName = this.getView().byId("idPersonNameInput").getValue();
-			this.ZIP = this.getView().byId("idZIPInput").getValue();
-			this.City = this.getView().byId("idCityInput").getValue();
+			this.zip = this.getView().byId("idZIPInput").getValue();
+			this.city = this.getView().byId("idCityInput").getValue();
 			this.street = this.getView().byId("idStreetInput").getValue();
+
+			//validation check
+
+			const isAlpha = (str) => /^[a-zA-Z]*$/.test(str);
+			const isNumber = (str) => /[0-9]+$/.test(str);
+			if (!isNumber(this.person)) {
+				MessageBox.alert("Csak számot tartalmazhat");
+				this.getView().byId("idPersonNumberInput").setValue("");
+			  }
+			if (!isAlpha(this.personName)) {
+				MessageBox.alert("Nem tartalmazhat számot vagy speciális karaktert");
+				this.getView().byId("idPersonNameInput").setValue("");
+			  }		
+			if (!isNumber(this.zip)) {
+				MessageBox.alert("Csak számot tartalmazhat");
+				this.getView().byId("idZIPInput").setValue("");
+			  }
+			if (!isAlpha(this.city)) {
+				MessageBox.alert("Nem tartalmazhat számot vagy speciális karaktert");
+				this.getView().byId("idCityInput").setValue("");
+			  }
 		},
 		onReservationFinish : function(){	
 			debugger;
 			var oEntry = {};
+			oEntry.DateFrom = this.dateFrom;
+			oEntry.DateTo = this.dateTo
+			oEntry.Guests= this.person;
 			oEntry.InvoName = this.personName;
-			oEntry.InvoZip = this.ZIP;
-			oEntry.InvoCity = this.City;
+			oEntry.InvoZip = this.zip;
+			oEntry.InvoCity = this.city;
 			oEntry.InvoStNo = this.street;
-			oEntry.Guests= this.Person;
 			this.oModel.create("BookingSet", oEntry, {
 				method: "POST",
           success: function (data) {
             MessageBox.alert("Sikeres Foglalás");
-			this.oRouter.navTo("Main")
+			this.oRouter.navTo("Main");
           },
           error: function (e) {
             MessageBox.alert("Sikertelen foglalás");

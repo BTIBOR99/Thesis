@@ -56,18 +56,13 @@ sap.ui.define(
       RegistrationInputValidition: function (input) {
         const isAlpha = (str) => /^[a-zA-Z]*$/.test(str);
         this.nickNameBoolean = Boolean(false);
-        this.nickName = this.getView()
-          .byId("idRegistrationNickNameInput")
-          .getValue();
+        this.nickName = this.getView().byId("idRegistrationNickNameInput").getValue();
         var mailregex =
           /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         this.email = this.getView().byId("idRegistrationEmailInput").getValue();
-        this.password = this.getView()
-          .byId("idRegistrationPasswordInput")
-          .getValue();
-        this.password2 = this.getView()
-          .byId("idRegistrationPasswordInput2")
-          .getValue();
+        this.password = this.getView().byId("idRegistrationPasswordInput").getValue();
+        this.password2 = this.getView().byId("idRegistrationPasswordInput2").getValue();
+       
         if (this.nickName.length == 0) {
           MessageBox.alert("Adjon meg Felhasználó nevet");
         }

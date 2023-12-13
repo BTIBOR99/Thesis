@@ -37,6 +37,10 @@ sap.ui.define([
 			  MessageBox.alert("Ilyen felhaszáló vagy e-mail már létezik");
 			},
         });
+		},
+		onExitCreate: function(){
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("Main");
 		}
 	});
 	}

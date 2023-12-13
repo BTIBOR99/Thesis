@@ -55,7 +55,18 @@
             width="100%"/>
         </HBox>
     </VBox>
-            <DateRangeSelection />
+    <HBox
+    >
+        <DatePicker
+		id="idDpReservation1"
+        placeholder="Mettől"
+		valueFormat="ddMMyyyy"	/>
+        <DatePicker
+		id="idDpReservation2"
+        placeholder="Meddig"
+		valueFormat="ddMMyyyy"	/>
+    </HBox>
+        
             <Text
                 text="Adja meg a személyek számát" />
             <Input
@@ -63,8 +74,8 @@
             />
             <Text
                 text="Fizetési mód" />
-            <ComboBox 
-            items=""
+            <ComboBox
+                items=""
             />
             <Text
                 text="Foglaló Neve" />
