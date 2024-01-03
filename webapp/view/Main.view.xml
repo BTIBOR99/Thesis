@@ -1,4 +1,4 @@
-<mvc:View xmlns:widgets="sap.ui.integration.widgets" xmlns:filterbar="sap.ui.comp.filterbar"
+<mvc:View xmlns:widgets="sap.ui.integration.widgets"
 	controllerName="Thesis.thesis.controller.Main"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
@@ -22,23 +22,42 @@
 					press="onExit"
 			></Button>
 				</FlexBox>
-						<SearchField width="50%" placeholder="Keresés" search="onSearch" />
-			
-				<filterbar:FilterBar >
-				</filterbar:FilterBar>
+			<FlexBox>
+				<HBox 
+				justifyContent="Start"
+				width="100%"
+				>
+					<SearchField width="300%"  placeholder="Keresés" change="onSearch" />
+				</HBox>
+				<HBox
+				width="100%"
+				justifyContent="End">
+						<Button 
+			id="idCreateReservation"
+			width="100%"
+			text="Szállás létrehozása"
+			press="onNavigationCreate"
+			visible="false"/>
+					<Button
+						width="100%"
+						text="Foglalásaid"
+						press="onList" />
+				</HBox>
+			</FlexBox>
 		<FlexBox 
 			items="{ path: 'AccomodationModel>/' }"
 			height="auto"
 			width="auto"
 			wrap="Wrap"
-		>
+			id="idFlexBox">
 			<items>
 				<f:Card class="sapUiMediumMargin" width="300px">
 					<f:header>
-						<card:Header title="{AccomodationModel>Name}" />
+						<card:Header title="{AccomodationModel>Name}"  />
 					</f:header>
 					<f:content>
-						<FlexBox direction="Column" height="auto" alignItems="Center" justifyContent="Center"
+						<FlexBox width="100%"
+						 direction="Column" height="auto" alignItems="Center" justifyContent="Center"
 							alignContent="Center">
 							<Text text="{AccomodationModel>City}" />
 							<Text text="{AccomodationModel>DateFrom}"  />
@@ -52,18 +71,12 @@
 								press="onDeleteReservation"
 								visible="false"
 							>
-								
 							</Button>
 						</FlexBox>
 					</f:content>
 				</f:Card>
 			</items>
 		</FlexBox>
-		<Button 
-			id="idCreateReservation"
-			icon="sap-icon://add"
-			press="onNavigationCreate"
-			visible="false"
-		/>
+
 </Page>
 </mvc:View>

@@ -112,6 +112,11 @@
           "pattern": "AccomodationReservation/{id}",
           "name": "AccomodationReservation",
           "target" : "AccomodationReservation"
+        },
+        {
+          "pattern": "Bookings",
+          "name": "Bookings",
+          "target" : "Bookings"
         }
       ],
       "targets": {
@@ -130,6 +135,10 @@
         "AccomodationReservation" : {
           "id": "AccomodationReservation",
           "name": "AccomodationReservation"
+        },
+        "Bookings" : {
+          "id": "Bookings",
+          "name": "Bookings"
         }
       }
     },

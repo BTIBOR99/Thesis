@@ -2,6 +2,7 @@
 	controllerName="Thesis.thesis.controller.AccomodationCreate"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
+	xmlns:u="sap.ui.unified"
 	displayBlock="true"
 	height="100%"
 	busyIndicatorDelay="0"
@@ -12,28 +13,31 @@
     <content>
 		<VBox
 		>
+		<Text text="Szállás Neve:"/>
+				<Input 
+		id="idAccomodationNameInput"
+		width="50%"/>	
+		<Text text="Képek hozzáadása:" />
+	<u:FileUploader 
+            id="myFileUpload"
+            name="myFileUpload"
+            tooltip="Upload your file"
+            change="handleSelectFile"
+            sameFilenameAllowed="false"
+            ypeMissmatch="pdf,application/pdf"/>
+
+		<Text text="Foglalhatóság ideje"/>
 		<HBox
 		>
-		<Text
-		text="Szállás Neve:"/>	
-		
-		<Text
-			text="Képek hozzáadása:" />
-		</HBox>
-		<HBox>
-		<Input 
-		id="idAccomodationNameInput"
-		width="50%"/>
-		<Button 
-		text="+"
-		press="onAddPictures"/>		
-		</HBox>
 		<DatePicker
 		id="idDp1"
-		valueFormat="ddMMyyyy"	/>
+		valueFormat="ddMMyyyy"
+		placeholder="Mettől"	/>
 		<DatePicker
 		id="idDp2"
-		valueFormat="ddMMyyyy"	/>
+		valueFormat="ddMMyyyy"
+		placeholder="Meddig"/>
+		</HBox>
 		<Text
 		text= "Szállás Helye:"/> 
 		<Input
@@ -49,7 +53,7 @@
 		<Input
 		id = "idAccomodationDescriptionInput"
 		 width="100%"/>
-		</VBox>	
+		</VBox>	 
         <Button 
 		text="Létrehozás"
 		press="onCreate"/>
@@ -57,7 +61,6 @@
 			text="Mégse"
 			press="onExitCreate"
 		/>
-
     </content>
 
 </Page>

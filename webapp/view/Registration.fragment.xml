@@ -21,6 +21,7 @@ title="Regisztráció"
                        liveChange="RegistrationInputValidition"
                        id="idRegistrationNickNameInput"
                        maxLength="10"
+                       required="true"
                        />
                     <Text text="E-mail"/>
                     <Input 
@@ -34,11 +35,13 @@ title="Regisztráció"
                         class="sapUiSmallMarginEnd"
                         type="Password"
                         liveChange="RegistrationInputValidition"
+                        maxLength="20"
                         id="idRegistrationPasswordInput"/>
                     <Text text="Jelszó újra"/>
                     <Input
                         class="sapUiSmallMarginEnd"
                         type="Password"
+                        maxLength="20"
                         liveChange="RegistrationInputValidition"
                         id="idRegistrationPasswordInput2"
                         />

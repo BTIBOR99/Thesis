@@ -1,0 +1,45 @@
+<mvc:View
+	controllerName="Thesis.thesis.controller.Bookings"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+    xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+
+<Page
+ 
+>
+    <content>
+        <FlexBox 
+			items="{ path: 'BookingsModel>/' }"
+			height="auto"
+			width="auto"
+			wrap="Wrap">
+			<items>
+				<f:Card class="sapUiMediumMargin" width="300px">
+					<f:header>
+						<card:Header title="{BookingsModel>Name}"  />
+					</f:header>
+					<f:content>
+						<FlexBox width="100%"
+						 direction="Column" height="auto" alignItems="Center" justifyContent="Center"
+							alignContent="Center">
+							<Text text="{BookingsModel>City}" />
+							<Text text="{BookingsModel>DateFrom}"  />
+							<Text text="{BookingsModel>DateTo}" />
+							<Text text="{BookingsModel>Description}" />
+							<Text text="{BookingsModel>Price}" />
+						    <Button text="Vissza" press="onBackToMain"  />
+						</FlexBox>
+					</f:content>
+				</f:Card>
+			</items>
+		</FlexBox>
+    </content>
+
+</Page>
+</mvc:View>

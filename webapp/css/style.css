@@ -1,6 +1,9 @@
 /* Enter your custom styles here */
 
  .page2BgImg {
-    background-image: url('https://hellozemplen.hu/wp-content/uploads/aranygombos-fogado.jpg');
+    background-image: url(https://helloolaszorszag.hu/images/kepek/01-aaa/01_aaa_001_szallas_tengeri_kilatas.jpg);
     background-size: 100% 100%;
+    filter: grayscale(30%);
   }
+
+/* 'https://hellozemplen.hu/wp-content/uploads/aranygombos-fogado.jpg' */

@@ -18,7 +18,7 @@
             <Input 
             id="idAccomodationName"
             editable="disabled"
-            width="10%"
+            width="30%"
             />
             <Text 
             id="idTextOutput"
@@ -28,7 +28,7 @@
             <Input 
             id="idAccomodationPlace"
             editable="disabled"
-            width="10%"/>
+            width="30%"/>
             <Text
                 text="Leírása" />
             <Input 
@@ -41,7 +41,7 @@
             <Input 
             id="idAccomodationPrice"
             editable="disabled"
-            width="10%"/>
+            width="20%"/>
             <Text
                 text="Foglalható" />
         <HBox >
@@ -55,59 +55,90 @@
             width="100%"/>
         </HBox>
     </VBox>
-    <HBox
+    <VBox
     >
+        <Text text="Válasszon időpontot:"/>
+    <HBox>
         <DatePicker
 		id="idDpReservation1"
         placeholder="Mettől"
-		valueFormat="ddMMyyyy"	/>
+		valueFormat="ddMMyyyy"
+        liveChange="BillingDataValidition"	/>
         <DatePicker
 		id="idDpReservation2"
         placeholder="Meddig"
-		valueFormat="ddMMyyyy"	/>
+		valueFormat="ddMMyyyy"
+        liveChange="BillingDataValidition"	/>
     </HBox>
-        
-            <Text
-                text="Adja meg a személyek számát" />
+    </VBox>
+        <VBox
+        >
+            <Text  text="Adja meg a személyek számát" />
             <Input
                 id="idPersonNumberInput"
+                liveChange="BillingDataValidition"
+                width="16%"
             />
             <Text
                 text="Fizetési mód" />
             <ComboBox
-                items=""
-            />
+                id="idPaymentSelect"
+                forceSelection="true"
+                required="true"
+                items="{StaticModel>/PaymentCollection}">
+
+            <c:Item key="{StaticModel>PaymentId}" text="{StaticModel>PaymentType}" />
+            </ComboBox>
+                 
+        </VBox>
+
+        <VBox justifyContent="Start"
+            >
             <Text
                 text="Foglaló Neve" />
             <Input
                 id="idPersonNameInput"
                 liveChange="BillingDataValidition"
+                maxLength="40"
             />
+                
+            </VBox>
+            <VBox justifyContent="End" alignContent="End"
+            >
             <Text
                 text="Irányítószám" />
             <Input
                 id="idZIPInput"
                 liveChange="BillingDataValidition"
+                maxLength="4"
             />
+                
+            </VBox>
             <Text
                 text="Város" />
             <Input
                 id="idCityInput"
-                liveChange="BillingDataValidition"                
+                liveChange="BillingDataValidition"  
+                maxLength="20"             
             />
             <Text
                 text="Utca,házszám" />
             <Input
                 id="idStreetInput"
                 liveChange="BillingDataValidition"
+                maxLength="40"
             />
+  
+        <VBox justifyContent="Center" width="100%" alignContent="Center" alignItems="Center"
+        >
             <Button
                 text="Foglalás"
-                press="onReservationFinish" />
+                press="onReservationFinish"
+                 />
             <Button
                 text="Mégse"
                 press="onExitReservation" />
-
+        </VBox>
     </content>
 
 

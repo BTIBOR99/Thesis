@@ -1,27 +1,32 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
+	"sap/ui/core/mvc/Controller",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
 ], function(
-	Controller
+	Controller,
+	Filter,
+	FilterOperator
 ) {
 	"use strict";
 
 	return Controller.extend("Thesis.thesis.controller.Main", {
         onInit: function () {
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            this.getAccomodationList();
-              debugger; 
-            this.username = localStorage.getItem("Username");
-            if (this.username === 'admin') {
+           
+            this.oRouter.getRoute("Main").attachMatched(this.onRouteMatched, this);         
+        },
+        onRouteMatched: function(oEvent){
+            var username = localStorage.getItem("Username");
+            if (username === 'admin') {
                 this.getView().byId("btnDeleteReservation").setVisible(true);
                 this.getView().byId("idCreateReservation").setVisible(true);
-
             } else {
                 this.getView().byId("btnDeleteReservation").setVisible(false);
                 this.getView().byId("idCreateReservation").setVisible(false);
             }
+            this.getAccomodationList();
         },
         getAccomodationList: function (){
-
             this.oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/Z_THESIS_BM_SRV/");
             this.oModel.read("AccomodationSet", {
                 success: function(oData) {
@@ -32,10 +37,33 @@ sap.ui.define([
             })
         },
 
-        onSearch: function (event) {
-			if (event.getParameter("searchButtonPressed")) {
-				MessageToast.show("'search' event fired with 'searchButtonPressed' parameter");
+        onList: function (){            
+            localStorage.setItem("Username", username);
+            this.oRouter.navTo("Bookings");
+        },
+
+        onSearch: function (oEvent) {
+            var aFilterSearch = [];
+            var FilterArray = [...this.aFilterSearch || []];
+			var oList = this.byId("idFlexBox");
+			var oBinding = oList.getBinding("items");
+			var sQuery = oEvent.getSource().getValue();
+			if (sQuery && sQuery.length > 0) {
+                var filters = new Filter({
+                    filters: [
+                        new Filter("Name", FilterOperator.Contains,sQuery),
+                        new Filter("City", FilterOperator.Contains,sQuery),
+                        new Filter("Price", FilterOperator.Contains,sQuery),
+                        new Filter("Description", FilterOperator.Contains,sQuery)
+                    ],
+                    and: false,
+                  });
+				aFilterSearch.push([filters]);
 			}
+
+            FilterArray = [...aFilterSearch || []];
+	        oBinding.filter(FilterArray, "Application");
+            this.aFilterSearch = aFilterSearch;
 		},
 
         onExit: function(){
@@ -49,14 +77,14 @@ sap.ui.define([
             var realid = parseInt(fields[2]);
             this.oRouter.navTo("AccomodationReservation", {id: realid + 1 });
 		},
-        onDeleteReservation : function(){
+        onDeleteReservation : function(oEvent){
             debugger;
-            this.oModel.remove("AccomodationSet", {
-                method: "DELETE" ,
-                success: function() {
-
-                },
-                error : function(){}
+            var fields = oEvent.mParameters.id.split('-');
+            var realid = parseInt(fields[10])+1;
+            this.oModel.remove("AccomodationSet('" + realid + "')", {
+                success: function(oData) {
+                    window.location.reload();
+                }
             })
         },
         onNavigationCreate : function (){

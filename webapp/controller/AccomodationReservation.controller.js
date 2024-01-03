@@ -1,19 +1,27 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/Filter"
+	"sap/ui/model/Filter",
+	"sap/m/MessageBox",
+	"sap/ui/model/json/JSONModel",
+	"sap/m/MessageToast"
 ], function(
 	Controller,
-	Filter
-) {
+	Filter,
+	MessageBox,
+	JSONModel,
+	MessageToast
+	) {
 	"use strict";
 
 	return Controller.extend("Thesis.thesis.controller.AccomodationReservation", {
 		onInit: function () {
+			this.staticValuesOdata();
+			this.userName = localStorage.getItem("Username");
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getRoute("AccomodationReservation").attachMatched(this.onRouteMatched, this);
         },
 		onRouteMatched: function(oEvent){
-		    var realid = oEvent.getParameter('arguments').id;	
+		    var realid = oEvent.getParameter('arguments').id;
 			var filters = new Filter({
 				filters: [
 				  new Filter("Id", "EQ", realid),
@@ -24,8 +32,6 @@ sap.ui.define([
 			this.oModel.read("AccomodationSet", {
 				filters: [filters],
 				success: function(oData) {
-				// this.AccomodationModel = new sap.ui.model.json.JSONModel(oData.results);
-				// this.getView().setModel(this.AccomodationModel, "Accomodation")
 				this.getView().byId("idAccomodationName").setValue(oData.results[0].Name);
 				this.getView().byId("idAccomodationPlace").setValue(oData.results[0].City);
 				this.getView().byId("idAccomodationDescription").setValue(oData.results[0].Description);
@@ -38,41 +44,64 @@ sap.ui.define([
 				}
 			});
 		},
+		
+		staticValuesOdata : function (){
+			var oData = {
+				"PaymentCollection": [
+					{
+						"PaymentId": "0",
+						"PaymentType": "Készpénz",
+						"Icon": "sap-icon://money-bills",
+					},
+					{
+						"PaymentId": "1",
+						"PaymentType": "Kártya",
+						"Icon": "sap-icon://credit-card",
+					},
+				]
+			}
+			var StaticModel = new JSONModel(oData);
+			this.getView().byId("idPaymentSelect").setModel(StaticModel,'StaticModel');
+		},
 
 		BillingDataValidition : function(input){
 			debugger;
 			this.dateFrom = this.getView().byId("idDpReservation1").getValue();
 			this.dateTo = this.getView().byId("idDpReservation2").getValue();
-			this.person = this.getView().byId("idPersonNumberInput").getValue();
-			this.personName = this.getView().byId("idPersonNameInput").getValue();
-			this.zip = this.getView().byId("idZIPInput").getValue();
+			this.person = this.getView().byId("idPersonNumberInput").getValue();	
+			this.personName = this.getView().byId("idPersonNameInput").getValue();	
 			this.city = this.getView().byId("idCityInput").getValue();
+			this.zip = this.getView().byId("idZIPInput").getValue();
+
+			this.payment = this.getView().byId("idPaymentSelect").getValue();
 			this.street = this.getView().byId("idStreetInput").getValue();
 
-			//validation check
-
 			const isAlpha = (str) => /^[a-zA-Z]*$/.test(str);
-			const isNumber = (str) => /[0-9]+$/.test(str);
-			if (!isNumber(this.person)) {
+			const isNumber = (str) => /^\d+$/.test(str);
+			debugger;
+			if (!isNumber(this.person)&& this.person.length > 0) {
 				MessageBox.alert("Csak számot tartalmazhat");
-				this.getView().byId("idPersonNumberInput").setValue("");
 			  }
-			if (!isAlpha(this.personName)) {
+			if (!isAlpha(this.personName) ) {
 				MessageBox.alert("Nem tartalmazhat számot vagy speciális karaktert");
-				this.getView().byId("idPersonNameInput").setValue("");
 			  }		
-			if (!isNumber(this.zip)) {
+			if (!isNumber(this.zip) && this.zip.length > 0) {
 				MessageBox.alert("Csak számot tartalmazhat");
-				this.getView().byId("idZIPInput").setValue("");
-			  }
+			  }	
 			if (!isAlpha(this.city)) {
 				MessageBox.alert("Nem tartalmazhat számot vagy speciális karaktert");
-				this.getView().byId("idCityInput").setValue("");
 			  }
 		},
 		onReservationFinish : function(){	
 			debugger;
+			//Foglalás ára
+			var finalDays = this.dateTo - this.dateFrom;
+			var finalPrice = this.getView().byId("idAccomodationPrice").getValue();
+			var lastPrice = this.person * finalPrice * finalDays ;
+			MessageBox.alert("A foglalás ára :" + lastPrice);
+			
 			var oEntry = {};
+			oEntry.Username = this.userName;
 			oEntry.DateFrom = this.dateFrom;
 			oEntry.DateTo = this.dateTo
 			oEntry.Guests= this.person;
