@@ -10,7 +10,6 @@ sap.ui.define([
 
 	return Controller.extend("Thesis.thesis.controller.AccomodationCreate", {
 	onInit : function(){
-
 		this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 	},
 
@@ -38,6 +37,9 @@ sap.ui.define([
 		this.Description = this.getView().byId("idAccomodationDescriptionInput").getValue();
 		this.DateFrom = this.getView().byId("idDp1").getValue();
 		this.DateTo = this.getView().byId("idDp2").getValue();
+		
+		
+
 
 		  var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/Z_THESIS_BM_SRV/");
 		  var oEntry = {};
@@ -51,13 +53,14 @@ sap.ui.define([
 		  oModel.create("/AccomodationSet", oEntry, {
 			method: "POST",
 			success: function (data) {
-			  ("Sikeres mentés");
-			  this.oRouter.navTo("Main");
+			  MessageBox.information("Sikeres mentés");
+			 
 			},
 			error: function (e) {
 			  MessageBox.alert("Nem volt sikeres a mentés");
 			},
         });
+		this.oRouter.navTo("Main");
 		},
 		onExitCreate: function(){
 			this.oRouter.navTo("Main");

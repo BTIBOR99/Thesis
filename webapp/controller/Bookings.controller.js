@@ -13,6 +13,7 @@ sap.ui.define([
         this.getBookingsList();
     },
     getBookingsList: function (){
+        debugger;
         var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/Z_THESIS_BM_SRV/");
         var filters = new Filter({
             filters: [

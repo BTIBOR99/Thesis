@@ -56,13 +56,12 @@ sap.ui.define(
         this.byId("Dialog").close();
       },
       RegistrationInputValidition: function () {
-        const isAlpha = (str) => /^[a-zA-Z]*$/.test(str);
-        this.nickNameBoolean = Boolean(false);
         this.nickName = this.getView().byId("idRegistrationNickNameInput").getValue();
         this.password = this.getView().byId("idRegistrationPasswordInput").getValue();
         this.password2 = this.getView().byId("idRegistrationPasswordInput2").getValue();
         this.email = this.getView().byId("idRegistrationEmailInput").getValue();
-        
+        const isAlpha = (str) => /^[a-zA-Z]*$/.test(str);
+
         if (!isAlpha(this.nickName)) {      
           this.getView().byId("idRegistrationNickNameInput").setValueState('Error');
           MessageToast.show("Nem tartalmazhat számot vagy speciális karaktert a Felhasználó név")
@@ -99,6 +98,13 @@ sap.ui.define(
           MessageToast.show("Nem valid az email cím")
           return this.onDialogPress;
         }  
+        if (this.email) {
+          this.getView().byId("idRegistrationEmailInput").setValueState('None');
+        }else{
+          this.getView().byId("idRegistrationEmailInput").setValueState('Error');
+          MessageToast.show("Kötelező a az e-mail cím")
+          return this.onDialogPress;
+        }
         if (this.password) {
           this.getView().byId("idRegistrationPasswordInput").setValueState('None');
         }else{
@@ -155,9 +161,6 @@ sap.ui.define(
         oDataModel.read("/UserSet", {
           filters: [filters],
           success: function () {
-          //  MessageBox.alert("Log suc.");
-          //  this.getView().byId("nameInput").setValue("");
-          // this.getView().byId("PasswordInput").setValue("");
             oRouter.navTo("Main");
             localStorage.setItem("Username", username);
           },

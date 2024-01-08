@@ -31,11 +31,11 @@
 		>
 		<DatePicker
 		id="idDp1"
-		valueFormat="ddMMyyyy"
+		valueFormat="yyyyMMdd"
 		placeholder="Mettől"	/>
 		<DatePicker
 		id="idDp2"
-		valueFormat="ddMMyyyy"
+		valueFormat="yyyyMMdd"
 		placeholder="Meddig"/>
 		</HBox>
 		<Text

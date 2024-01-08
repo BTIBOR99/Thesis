@@ -21,7 +21,6 @@ title="Regisztráció"
                        liveChange="RegistrationInputValidition"
                        id="idRegistrationNickNameInput"
                        maxLength="10"
-                       required="true"
                        />
                     <Text text="E-mail"/>
                     <Input 

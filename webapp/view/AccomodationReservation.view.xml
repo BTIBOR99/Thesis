@@ -62,12 +62,12 @@
         <DatePicker
 		id="idDpReservation1"
         placeholder="Mettől"
-		valueFormat="ddMMyyyy"
+		valueFormat="yyyyMMdd"
         liveChange="BillingDataValidition"	/>
         <DatePicker
 		id="idDpReservation2"
         placeholder="Meddig"
-		valueFormat="ddMMyyyy"
+		valueFormat="yyyyMMdd"
         liveChange="BillingDataValidition"	/>
     </HBox>
     </VBox>

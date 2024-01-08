@@ -59,10 +59,15 @@
 						<FlexBox width="100%"
 						 direction="Column" height="auto" alignItems="Center" justifyContent="Center"
 							alignContent="Center">
+							<Text text="Város:"/>
 							<Text text="{AccomodationModel>City}" />
+							<Text text="Mettől foglalható:"/>
 							<Text text="{AccomodationModel>DateFrom}"  />
+							<Text text="Meddig foglalható:"/>
 							<Text text="{AccomodationModel>DateTo}" />
+							<Text text="Leírás:"/>
 							<Text text="{AccomodationModel>Description}" />
+							<Text text="Ára egy éjszakának egy főre:"/>
 							<Text text="{AccomodationModel>Price}" />
 						    <Button text="Foglalás" press="onReservation"  />
 							<Button

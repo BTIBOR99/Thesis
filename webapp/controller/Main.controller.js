@@ -38,10 +38,9 @@ sap.ui.define([
         },
 
         onList: function (){            
-            localStorage.setItem("Username", username);
             this.oRouter.navTo("Bookings");
+         //   localStorage.setItem("Username", username);
         },
-
         onSearch: function (oEvent) {
             var aFilterSearch = [];
             var FilterArray = [...this.aFilterSearch || []];
@@ -73,14 +72,15 @@ sap.ui.define([
         },
 
 		onReservation: function(oEvent) {
+            debugger;
             var fields = oEvent.mParameters.id.split('-');
-            var realid = parseInt(fields[2]);
-            this.oRouter.navTo("AccomodationReservation", {id: realid + 1 });
+            var realid = parseInt(fields[10])+1;
+            this.oRouter.navTo("AccomodationReservation", {Tab_index: realid});
 		},
         onDeleteReservation : function(oEvent){
             debugger;
             var fields = oEvent.mParameters.id.split('-');
-            var realid = parseInt(fields[10])+1;
+            var realid = parseInt(fields[18])+1;
             this.oModel.remove("AccomodationSet('" + realid + "')", {
                 success: function(oData) {
                     window.location.reload();
